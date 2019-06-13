@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Listado  Empresas</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control" name="filterEmpresa" placeholder="Search..." [(ngModel)]="filterEmpresa">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>codigo</th>
+            <th>descripcion</th>
+            <th>Nit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empresa of empresas  | filtroempresa:filterEmpresa">
+            <td>{{empresa.CODIGO	}}</td>
+            <td>{{empresa.DESCRIPCION}}</td>
+            <td>{{empresa.NIT}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+
+ 
+     
+  
+  
+   <div class="container">
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">
+   crear nuevo concepto  cuenta
+    </button>
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal3">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Agregar Concepto cuenta</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+              <div class="col-sm-12 ">
+                  <div class="card">
+                    <div class="card-body">
+                      <form>
+                           <div class="form-group">
+                             <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_emp" placeholder="id empresa" class="form-control"autofocus>
+                           </div>
+                           <div class="form-group">
+                            <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_concepto" placeholder="id concepto" class="form-control"autofocus>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_cuenta" placeholder="id cuenta" class="form-control"autofocus>
+                          </div>
+              
+                          
+                             
+                        </form>
+                    </div>
+                  </div>
+               </div>
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-success btn-block" data-dismiss="modal"  (click)="   saveNewConceptocuenta()" >Guardar</button>
+            </div>
+          <!-- Modal footer -->
+    
+          
+        </div>
+      </div>
+    </div>
+    <br/>
+  
+  </div>
+  
+<div class="col-sm-12 a5" *ngFor="let conceptocuenta of conceptocuentas">
+  <div class="card text-center">
+    <div class="card-header bg-dark  text-white d-flex justify-content-between align-items-center">
+     
+     <div  class="col-sm-8 a7">
+
+
+     
+      {{conceptocuenta.id_emp}}    {{conceptocuenta.id_concepto}} 
+
+    </div>
+
+    <div  class="col-sm-4">
+    <button class="btn btn-danger a6" (click)="deleteconceptocuenta(conceptocuenta.id_conceptocuentas)">
+      <i class="far fa-trash-alt"></i>
+ </button>
+
+
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" (click)="viewModal(conceptocuenta)" >
+    edit
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal a5" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Editar Concepto cuenta</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+          <div class="col-sm-12 ">
+            <div class="card">
+              <div class="card-body">
+                <form>
+            
+                     <div class="form-group">
+                       <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_emp" placeholder="id empresa" class="form-control"autofocus>
+                     </div>
+                     
+                     <div class="form-group">
+                      <input type="text" name="comentario1" [(ngModel)]="conceptocuenta.id_concepto" placeholder="id concepto" class="form-control"autofocus>
+                    </div>
+                    
+                    <div class="form-group">
+                      <input type="text" name="comentario2" [(ngModel)]="conceptocuenta.id_cuenta" placeholder="id cuenta" class="form-control"autofocus>
+                    </div>
+        
+                 
+                         
+                  </form>
+              </div>
+            </div>
+         </div>
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success btn-block" data-dismiss="modal" (click)=" updateConceptocuenta(conceptocuenta) " >Guardar</button>
+        </div>
+        
+      </div>
+   
+  </div>
+  
+</div>
+
+
+</div>
+    </div>
+    
+    
+  </div>
+
+</div>
