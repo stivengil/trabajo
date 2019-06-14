@@ -5,12 +5,13 @@ import { ConceptoListComponent } from './components/concepto-list/concepto-list.
 import { EmpresaListComponent } from './components/empresa-list/empresa-list.component';
 import { CuentaListComponent } from './components/cuenta-list/cuenta-list.component';
 import { ConceptoCuentaComponent } from './components/concepto-cuenta/concepto-cuenta.component';
+import { ConceptofinalComponent } from './components/conceptofinal/conceptofinal.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'concepto',
+    redirectTo: 'conceptofinal',
     pathMatch: 'full'
   },
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'concepto-cuenta',
     component: ConceptoCuentaComponent
+  },
+  {
+    path: 'conceptofinal',
+    component: ConceptofinalComponent
   },
 
 ];

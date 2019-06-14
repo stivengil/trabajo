@@ -3,140 +3,95 @@
      
   
   
-   <div class="container">
-    <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-   crear nuevo concepto 
-    </button>
+   <div class="col-sm-12 a8">
+
+      <button class= "col-sm-12 a9" (click)="mostrar1=!mostrar1" (click)="mostrar2=true"  (click)="mostrar3=false" > crear concepto </button>
+ 
   
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-        
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Agregar Concepto</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          
-          <!-- Modal body -->
-          <div class="modal-body">
-              <div class="col-sm-12 ">
-                  <div class="card">
-                    <div class="card-body">
-                      <form>
-                           <div class="form-group">
-                             <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
-                           </div>
-              
-                          
-                             
-                        </form>
-                    </div>
-                  </div>
-               </div>
-
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-success btn-block" data-dismiss="modal"  (click)="   saveNewConcepto()" >Guardar</button>
-            </div>
-          <!-- Modal footer -->
-    
-          
-        </div>
-      </div>
-    </div>
-    <br/>
-  
-  </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="col-sm-12 a5" *ngFor="let Concepto of Conceptos">
-  <div class="card text-center">
-    <div class="card-header bg-dark  text-white d-flex justify-content-between align-items-center">
-     
-     <div  class="col-sm-8 a7">
-
-
-     
-      {{Concepto.id_concepto}}    {{Concepto.concepto_desc}} 
-
-    </div>
-
-    <div  class="col-sm-4">
-    <button class="btn btn-danger a6" (click)="deleteconcepto(Concepto.id_concepto)">
-      <i class="far fa-trash-alt"></i>
- </button>
-
-
-  <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" (click)="viewModal(Concepto)" >
-    edit
-  </button>
-
-  <!-- The Modal -->
-  <div class="modal a5" id="myModal1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Editar Concepto</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          
+      <div *ngIf="mostrar1">
           <div class="col-sm-12 ">
-            <div class="card">
-              <div class="card-body">
-                <form>
-            
-                     <div class="form-group">
-                       <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
-                     </div>
-        
-                 
+              <div class="card">
+                <div class="card-body">
+                  <form>
+                       <div class="form-group">
+                         <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
+                       </div>
+                       <button type="button" class="btn btn-success btn-block col-sm-6 a11 "  (click)="   saveNewConcepto()  "  (click)="   mostrar1=false  "  (click)="   mostrar2=false  " >Guardar</button>
+                       <button type="button" class="btn btn-danger btn-block col-sm-6 "    (click)="   mostrar1=false  "   (click)="   mostrar2=false  " (click)="   mostrar3=false  ">Cerrar</button>
+
+                      
                          
-                  </form>
+                    </form>
+                </div>
               </div>
-            </div>
-         </div>
+           </div>
 
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success btn-block" data-dismiss="modal" (click)=" updateConceptoo(concepto) " >Guardar</button>
-        </div>
-        
       </div>
-   
-  </div>
-  
+    
+
+      <div *ngIf="!mostrar2">
+
+      <div class="container">
+          <h1>Listado Conceptos</h1>
+          <div class="row">
+            <div class="col">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <table class="table table-striped a8">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>descripcion</th>
+                    <th>acciones</th>
+                    
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let concepto of Conceptos   | paginate: { itemsPerPage: 5, currentPage: p }">
+                    <td>  {{concepto.id_concepto}}</td>
+                    <td> {{concepto.concepto_desc}} </td>
+                    <td>  
+                        <button type="button" class="btn btn-primary"   (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true"   >
+                            edit
+                          </button>
+
+                      <button class="btn btn-danger a6" (click)="deleteconcepto(concepto.id_concepto)">
+                        <i class="far fa-trash-alt"></i>
+                   </button>
+                  
+                  </td>                  
+                  </tr>
+                </tbody>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </table>
+            </div>
+          </div>
+        </div>
+        
 </div>
 
+<div *ngIf="mostrar3">
+    <div class="card">
+        <div class="card-body">
+          <form>
+               <div class="form-group">
+                 <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
+               </div>
+               <button type="button" class="btn btn-success btn-block col-sm-6 a11"  (click)="   updateConceptoo(concepto) "  (click)="   mostrar1=false  "  (click)="   mostrar2=false  "(click)="   mostrar3=false  " >Guardar</button>
+               <button type="button" class="btn btn-danger btn-block col-sm-6 "    (click)="   mostrar1=false  "   (click)="   mostrar2=false  "  (click)="   mostrar3=false  ">Cerrar</button>
 
-</div>
-    </div>
-    
-    
+              
+                 
+            </form>
+        </div>
+      </div>
   </div>
+
+
+
 
 </div>

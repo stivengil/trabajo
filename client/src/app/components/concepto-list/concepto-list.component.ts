@@ -32,6 +32,7 @@ export class ConceptoListComponent implements OnInit {
   Conceptos: any = [];
 
 
+  filterConcepto ='';
 
 
   ngOnInit() {
@@ -91,7 +92,6 @@ export class ConceptoListComponent implements OnInit {
       res => {
       console.log(res);
       this.getconcepto();
-      this.router.navigate(['/concepto']);
       },
       err => console.error(err)
     )
@@ -111,7 +111,7 @@ export class ConceptoListComponent implements OnInit {
       
         this.getconcepto();
         
-        this.router.navigate(['/concepto']);
+   
       },
       err => console.error(err)
     )

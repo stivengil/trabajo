@@ -24,6 +24,10 @@ import { FiltconceptoPipe } from './servicefiltro/filtconcepto.pipe';
 import { FiltroconceptocuentaPipe } from './servicefiltro/filtroconceptocuenta.pipe';
 import { FiltroconceptcuenPipe } from './servicefiltro/filtroconceptcuen.pipe';
 
+
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ConceptofinalComponent } from './components/conceptofinal/conceptofinal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,19 +45,21 @@ import { FiltroconceptcuenPipe } from './servicefiltro/filtroconceptcuen.pipe';
 
     FiltroempresaPipe,
 
-   
 
     FiltconceptoPipe,
 
     FiltroconceptocuentaPipe,
 
-    FiltroconceptcuenPipe
+    FiltroconceptcuenPipe,
+
+    ConceptofinalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     ConceptosService,

@@ -56,6 +56,15 @@
     <br/>
   
   </div>
+
+  <div class="fileContainer">
+    <button (click)="mostrar=true"> Mostrar </button>
+  </div>
+  
+  <div *ngIf="mostrar">
+    <p> Ejemplo </p>
+    <button (click)="mostrar=false"> Ocultar </button>
+  </div>
   
 <div class="col-sm-12 a5" *ngFor="let conceptocuenta of conceptocuentas">
   <div class="card text-center">
@@ -139,3 +148,5 @@
   </div>
 
 </div>
+
+

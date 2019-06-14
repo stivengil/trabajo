@@ -1,7 +1,8 @@
 import { CuentasService } from './../../services/cuentas.service';
 import { Cuenta } from './../../models/cuenta';
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding ,ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cuenta-list',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CuentaListComponent implements OnInit {
 
- 
+
 
   @HostBinding('class') classes = 'row';
   cuenta: Cuenta = {
@@ -49,7 +50,6 @@ export class CuentaListComponent implements OnInit {
 
   ngOnInit() {
     this.getcuenta();
-  
     
 
 

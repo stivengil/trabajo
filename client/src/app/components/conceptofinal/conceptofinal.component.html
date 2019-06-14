@@ -1,0 +1,10 @@
+<app-navigation></app-navigation>
+<br/>
+
+    <button class= "col-sm-12 a9" (click)="mostrar=!mostrar"> Concepto </button>
+ 
+  
+  <div *ngIf="mostrar">
+      <app-concepto-list></app-concepto-list>
+    <button  class= "col-sm-12 a9" (click)="mostrar=false"> cerrar </button>
+  </div>
