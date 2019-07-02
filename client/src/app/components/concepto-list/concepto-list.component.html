@@ -1,23 +1,30 @@
-
+ <div class="col-sm-12 a15">
+  <h4 class ="a16">siesa enterprise</h4>
+ </div>
  
-     
-  
-  
-   <div class="col-sm-12 a8">
-
-      <button class= "col-sm-12 a9" (click)="mostrar1=!mostrar1" (click)="mostrar2=true"  (click)="mostrar3=false" > crear concepto </button>
  
-  
-      <div *ngIf="mostrar1">
+ <div class="col-sm-12 a17">
+   
+   <div *ngIf="mostrar1" class="a17">
           <div class="col-sm-12 ">
+
+              <br/>
               <div class="card">
+
                 <div class="card-body">
+
                   <form>
                        <div class="form-group">
+                          <button  type="button" class=" cerrar"    (click)="   mostrar1=false  "   (click)="   mostrar2=false  " (click)="   mostrar3=false  " (click)="   mostrar4=false  ">       <img src="/assets/cerrar.png"  class="cerrar1">     </button>
+
+                         <div class=""><h5>descripcion del concepto </h5></div>
+                         <div class="col-sm-12">
+                           <br/>
                          <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
-                       </div>
-                       <button type="button" class="btn btn-success btn-block col-sm-6 a11 "  (click)="   saveNewConcepto()  "  (click)="   mostrar1=false  "  (click)="   mostrar2=false  " >Guardar</button>
-                       <button type="button" class="btn btn-danger btn-block col-sm-6 "    (click)="   mostrar1=false  "   (click)="   mostrar2=false  " (click)="   mostrar3=false  ">Cerrar</button>
+                        </div>
+                        </div>
+
+                       <button type="button" class=" col-sm-3 a9 "  (click)="   saveNewConcepto()  "  (click)="   mostrar1=false  "  (click)="   mostrar2=false  " (click)="   mostrar4=false  ">    <img src="/assets/aceptar.png"  class="img1"> <div class="letra"> Agregar</div>  </button>
 
                       
                          
@@ -26,72 +33,125 @@
               </div>
            </div>
 
-      </div>
-    
+   </div>
 
-      <div *ngIf="!mostrar2">
-
+   <div *ngIf="!mostrar2"  class="a17">
+   <br/>
+   <br/>
       <div class="container">
-          <h1>Listado Conceptos</h1>
+          <h2> Conceptos</h2>
+          <br/>
+          <button class= "  col-sm-3 a9" (click)="mostrar1=!mostrar1" (click)="mostrar2=true"  (click)="mostrar3=false" (click)="   mostrar4=false  ">    <img src="/assets/agregar1.png"  class="img1"> <div class="letra"> Crear Concepto</div> </button>
+          <br/>
           <div class="row">
             <div class="col">
-
+              <div class="form-group">
+                  <br/>
+                <input type="text" class="form-control" name="filterConcepto" placeholder="buscador..." [(ngModel)]="filterConcepto">
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <table class="table table-striped a8">
+           <table class="table table-striped a8 table-hover  table-condensed" >
                 <thead>
                   <tr>
                     <th>id</th>
                     <th>descripcion</th>
-                    <th>acciones</th>
                     
                   
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let concepto of Conceptos   | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <tr *ngFor="let concepto of Conceptos   | paginate: { itemsPerPage: 5, currentPage: p }   | filtconcepto:filterConcepto"    (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "   >
                     <td>  {{concepto.id_concepto}}</td>
                     <td> {{concepto.concepto_desc}} </td>
                     <td>  
-                        <button type="button" class="btn btn-primary"   (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true"   >
-                            edit
-                          </button>
 
-                      <button class="btn btn-danger a6" (click)="deleteconcepto(concepto.id_concepto)">
-                        <i class="far fa-trash-alt"></i>
-                   </button>
+                
                   
                   </td>                  
                   </tr>
                 </tbody>
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
-              </table>
-            </div>
-          </div>
+           </table>
         </div>
         
-</div>
+   </div>
 
-<div *ngIf="mostrar3">
+   <div *ngIf="mostrar3"  class="a17">
+      <br/>
+     
+  
     <div class="card">
+  
         <div class="card-body">
           <form>
-               <div class="form-group">
-                 <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
-               </div>
-               <button type="button" class="btn btn-success btn-block col-sm-6 a11"  (click)="   updateConceptoo(concepto) "  (click)="   mostrar1=false  "  (click)="   mostrar2=false  "(click)="   mostrar3=false  " >Guardar</button>
-               <button type="button" class="btn btn-danger btn-block col-sm-6 "    (click)="   mostrar1=false  "   (click)="   mostrar2=false  "  (click)="   mostrar3=false  ">Cerrar</button>
+              <button type="button" class="cerrar "    (click)="   mostrar1=false  "   (click)="   mostrar2=false  "  (click)="   mostrar3=false  " (click)="   mostrar4=false  ">  <img src="/assets/cerrar.png"  class="cerrar1">    </button>
 
+            <div class="col-sm-12">
+
+               <div class="a12 col-sm-6">
+
+         <h5 class="a8">  id concepto :    {{concepto.id_concepto}} </h5>    
+         
+
+              </div>
+              <div class="a13 col-sm-4" >
+
+                  <h5 class="a8">     descripcion concepto  :   {{concepto.concepto_desc}}</h5>    
+
+              </div>
               
+            </div>
+            <br/>  <br/>
+            <div class="col-sm-12">
+                <button type="button" class="col-sm-3 a9 "  (click)="   updateConceptoo(concepto) "  (click)="   mostrar1=false  "  (click)="   mostrar2=true  "(click)="   mostrar3=false  " (click)="   mostrar4=true  ">  <img src="/assets/editar.png"  class="img1"> <div class="letra">editar concepto</div> </button>
+                    </div>
+              <br/>
                  
             </form>
         </div>
       </div>
-  </div>
+      <br/>
+     
+      <app-concepto-cuenta  [(id_concepto1)]="concepto.id_concepto"></app-concepto-cuenta>
 
+   </div>
 
+   <div *ngIf="mostrar4"  class="a17">
+     <br/>
+      <div class="card">
+          <div class="card-body">
+            <form>
+                 <div class="form-group">
+                    <button type="button" class="cerrar"    (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "><img src="/assets/cerrar.png"  class="cerrar1">  </button>
 
+                   <div class="col-sm-12">
+                        <div class="a12 col-sm-6">
+         
+                            <h5 class="a8">      id concepto :    {{concepto.id_concepto}} </h5>
+                  
+         
+                       </div>
+                       <div class="a13 col-sm-2">
+         
+                          <h5 class="a8">                 descripcion concepto  :       </h5>   
+                       </div>
+                       <div class ="col-sm-3 a14">
+                          <input type="text" name="comentario" [(ngModel)]="concepto.concepto_desc" placeholder="descripcion" class="form-control"autofocus>
+                       </div>
+                       
+                      </div>
+                      <br/>                   <br/>
 
-</div>
+                 </div>
+                 <button type="button" class="col-sm-3 a9"  (click)="   updateConceptoo(concepto) "   (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  " > <img src="/assets/aceptar.png"  class="img1"> <div class="letra"> Agregar</div></button>
+                 <button type="button"class="col-sm-3 a9 " (click)="deleteconcepto(concepto.id_concepto)"   (click)="   mostrar1=false  "   (click)="   mostrar2=false  "  (click)="   mostrar3=false  "  (click)="   mostrar4=false  ">  <img src="/assets/eliminar.png"  class="img1"> <div class="letra"> Eliminar</div>   </button>
+  
+                
+                   
+              </form>
+          </div>
+        </div>
+   </div>
+
+ </div>

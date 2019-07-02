@@ -1,10 +1,16 @@
 <app-navigation></app-navigation>
 <br/>
 
-    <button class= "col-sm-12 a9" (click)="mostrar=!mostrar"> Concepto </button>
+    <button class= "col-sm-12 a9" (click)="muestra1=!muestra1"> Concepto </button> <br/>
+    <button class= "col-sm-12 a9" (click)="muestra2=!muestra2"> Concepto Cuenta</button> <br/>
+
  
   
-  <div *ngIf="mostrar">
+  <div *ngIf="muestra1">
       <app-concepto-list></app-concepto-list>
-    <button  class= "col-sm-12 a9" (click)="mostrar=false"> cerrar </button>
+    <button  class= "col-sm-12 a9" (click)="muestra1=false"> cerrar </button>
   </div>
+  <div *ngIf="muestra2">
+    <app-concepto-cuenta></app-concepto-cuenta>
+  <button  class= "col-sm-12 a9" (click)="muestra2=false"> cerrar </button>
+</div>

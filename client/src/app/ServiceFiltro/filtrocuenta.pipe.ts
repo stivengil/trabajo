@@ -11,7 +11,7 @@ export class FiltrocuentaPipe implements PipeTransform {
     const resultCuenta = [];
     for (const cuenta of value) {
       if (cuenta.CODIGO.toLowerCase().indexOf(arg) > -1) {
-        resultCuenta.push(cuenta)      };
+        resultCuenta.push(cuenta) };
     };
     return resultCuenta;
   }

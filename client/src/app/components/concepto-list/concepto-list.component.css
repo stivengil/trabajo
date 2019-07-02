@@ -1,7 +1,14 @@
 
+.a7{
 
+    height: 7%;
+    width: 7%; 
+}
+.a17 {
+    background: #f5f6fa;
+}
 .a9{
-    background-color: coral;
+    background-color: teal;
     color: aliceblue;
 }
 .a11{
@@ -11,4 +18,50 @@
 }
 .a8{
     color:black;
+}
+
+.a13{
+    float: left;
+}
+.a12{
+    float: left;
+}
+.a14{
+    float: right;
+}
+.a1{background-color: blue}
+
+.a15
+{background-color: brown;
+}
+
+.a17
+{color:antiquewhite;
+}
+.a20{
+    font-size: 200%;
+}
+.cerrar{
+    float: right;
+   background-color: white;
+   border-block-start-color: white;
+border:none;
+
+}
+.img1{
+
+    color:white; 
+    width: 35px;
+    float: left;
+}
+.letra{
+
+   font-size: 1.5em;
+}
+.cerrar1{
+    width: 20px;
+    background-color: white;
+    border-block-start-color: white;
+ 
+
 }

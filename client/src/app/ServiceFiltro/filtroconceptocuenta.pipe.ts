@@ -8,7 +8,7 @@ export class FiltroconceptocuentaPipe implements PipeTransform {
  
     const resultConceptocuenta = [];
     for (const conceptocuenta of value) {
-      if (conceptocuenta.id_conceptocuentas.toLowerCase().indexOf(arg) > -1) {
+      if (conceptocuenta.id_emp.toLowerCase().indexOf(arg) > -1) {
         resultConceptocuenta.push(conceptocuenta)      };
     };
     return resultConceptocuenta;

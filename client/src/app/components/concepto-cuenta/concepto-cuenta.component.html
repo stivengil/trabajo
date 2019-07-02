@@ -1,152 +1,252 @@
-
  
-     
-  
-  
-   <div class="container">
-    <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">
-   crear nuevo concepto  cuenta
-    </button>
-  
-    <!-- The Modal -->
-    <div class="modal" id="myModal3">
-      <div class="modal-dialog">
-        <div class="modal-content">
-        
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Agregar Concepto cuenta</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          
-          <!-- Modal body -->
-          <div class="modal-body">
-              <div class="col-sm-12 ">
-                  <div class="card">
-                    <div class="card-body">
-                      <form>
-                           <div class="form-group">
-                             <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_emp" placeholder="id empresa" class="form-control"autofocus>
-                           </div>
-                           <div class="form-group">
-                            <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_concepto" placeholder="id concepto" class="form-control"autofocus>
-                          </div>
-                          <div class="form-group">
-                            <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_cuenta" placeholder="id cuenta" class="form-control"autofocus>
-                          </div>
-              
-                          
-                             
-                        </form>
-                    </div>
-                  </div>
-               </div>
-
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-success btn-block" data-dismiss="modal"  (click)="   saveNewConceptocuenta()" >Guardar</button>
-            </div>
-          <!-- Modal footer -->
-    
-          
-        </div>
-      </div>
-    </div>
-    <br/>
-  
-  </div>
-
-  <div class="fileContainer">
-    <button (click)="mostrar=true"> Mostrar </button>
-  </div>
-  
-  <div *ngIf="mostrar">
-    <p> Ejemplo </p>
-    <button (click)="mostrar=false"> Ocultar </button>
-  </div>
-  
-<div class="col-sm-12 a5" *ngFor="let conceptocuenta of conceptocuentas">
-  <div class="card text-center">
-    <div class="card-header bg-dark  text-white d-flex justify-content-between align-items-center">
-     
-     <div  class="col-sm-8 a7">
-
-
-     
-      {{conceptocuenta.id_emp}}    {{conceptocuenta.id_concepto}} 
-
-    </div>
-
-    <div  class="col-sm-4">
-    <button class="btn btn-danger a6" (click)="deleteconceptocuenta(conceptocuenta.id_conceptocuentas)">
-      <i class="far fa-trash-alt"></i>
- </button>
-
-
-  <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" (click)="viewModal(conceptocuenta)" >
-    edit
-  </button>
-
-  <!-- The Modal -->
-  <div class="modal a5" id="myModal1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Editar Concepto cuenta</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          
-          <div class="col-sm-12 ">
-            <div class="card">
-              <div class="card-body">
-                <form>
-            
-                     <div class="form-group">
-                       <input type="text" name="comentario" [(ngModel)]="conceptocuenta.id_emp" placeholder="id empresa" class="form-control"autofocus>
-                     </div>
-                     
-                     <div class="form-group">
-                      <input type="text" name="comentario1" [(ngModel)]="conceptocuenta.id_concepto" placeholder="id concepto" class="form-control"autofocus>
-                    </div>
-                    
-                    <div class="form-group">
-                      <input type="text" name="comentario2" [(ngModel)]="conceptocuenta.id_cuenta" placeholder="id cuenta" class="form-control"autofocus>
-                    </div>
-        
-                 
-                         
-                  </form>
-              </div>
-            </div>
-         </div>
-
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success btn-block" data-dismiss="modal" (click)=" updateConceptocuenta(conceptocuenta) " >Guardar</button>
-        </div>
-        
-      </div>
+ <div class="col-sm-12 a8">
    
+  <div *ngIf="mostrar1">
+         <div class="col-sm-12 ">
+             <div class="card a19" >
+               <div class="card-body a19">
+                 <form>
+             
+
+                       <div class="col-sm-12">
+                          <button type="button" class="cerrar"    (click)="   mostrar1=false  "   (click)="   mostrar2=false  " (click)="   mostrar3=false  " (click)="   mostrar4=false  "><img src="/assets/cerrar.png"  class="cerrar1">  </button>
+
+                          <div class = "a13 col-sm-6">
+
+                            <div class="a13 col-sm-4">
+                              <br/>
+                             <h5 class="a8 a18">         id empresa     </h5>      
+                          </div>
+                          <div class ="col-sm-8 a13">
+                             <h5 class="a8">    
+
+                              
+                            <div class="a17">
+                                <ng-autocomplete 
+                    
+                                  [data]="this.empresas"
+                                  [searchKeyword]="keyword1"
+                                  (selected)='selectEvent1($event)'
+                                  (inputChanged)='onChangeSearch1($event)'
+                                  (inputFocused)='onFocused1($event)'
+                                  [itemTemplate]="itemTemplate"
+                                  [notFoundTemplate]="notFoundTemplate">                                 
+                                </ng-autocomplete>
+                                 
+                                <ng-template #itemTemplate let-item class="">
+                                <a [innerHTML]="item.CODIGO"  class=""></a>
+                                </ng-template>
+                                 
+                                <ng-template #notFoundTemplate let-notFound class="">
+                                <div [innerHTML]="notFound"  class=""></div>
+                                </ng-template>
+                                </div>
+                             </h5> 
+                             </div>
+                          
+
+                            
+
+                            </div>
+
+                            <div class = "a13 col-sm-5">
+
+                                <div class="a13 col-sm-4 a18">
+                                  <br/>
+                                 <h5 class="a8">         id cuenta     </h5>      
+                              </div>
+                              <div class ="col-sm-8 a13">
+                                 <h5 class="a8">    
+    
+                                    <div class="a17" >
+                                        <ng-autocomplete 
+                                        value="conceptocuenta.id_cuenta"
+                                          [data]="this.Cuentas"
+                                          [searchKeyword]="keyword"
+                                          (selected)='selectEvent($event)'
+                                          (inputChanged)='onChangeSearch($event)'
+                                          (inputFocused)='onFocused($event)'
+                                          [itemTemplate]="itemTemplate"
+                                          [notFoundTemplate]="notFoundTemplate">    
+                                                                       
+                                        </ng-autocomplete>
+                                         
+                                        <ng-template #itemTemplate let-item  class="">
+                                        <a [innerHTML]="item.CODIGO"  class=""></a>
+                                        </ng-template>
+                                         
+                                        <ng-template #notFoundTemplate let-notFound class="">
+                                        <div [innerHTML]="notFound"  class=""></div>
+                                        </ng-template>
+                                        </div>
+                                 </h5> 
+                                 </div>
+                              
+    
+                                
+    
+                                </div>
+                        
+                        </div>
+                        <br/><br/><br/><br/>
+                      <button type="button" class="col-sm-3 a9 a18"     (click)="   saveNewConceptocuenta()  "  (click)="   mostrar1=false  "  (click)="   mostrar2=false  " (click)="   mostrar4=false  "> <img src="/assets/aceptar.png"  class="img1"> <div class="letra"> Agregar</div> </button>
+
+                     
+                        
+                   </form>
+               </div>
+             </div>
+          </div>
+
+  </div>
+
+  <div *ngIf="!mostrar2">
+     <br/>
+     <div class="container">
+         <h1> Conceptos cuentas</h1>
+         <br/>
+
+         <button class= "col-sm-3 a9" (click)="mostrar1=!mostrar1" (click)="mostrar2=true"  (click)="mostrar3=false" (click)="   mostrar4=false  ">  <img src="/assets/agregar1.png"  class="img1"> <div class="letra"> Crear Cuenta</div>  </button>
+         <br/>
+         <div class="row">
+           <div class="col">
+             <div class="form-group">
+                <br/>
+              <input type="text" class="form-control" name="filterConceptocuenta" placeholder="buscador..." [(ngModel)]="filterConceptocuenta">
+            </div>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col">
+             <table class="table table-striped a8 table-hover" >
+               <thead>
+                 <tr>
+
+                  <th>empresa</th>
+                  <th>cuenta</th>
+                   
+                 
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let conceptocuenta of conceptocuentas | paginate: { itemsPerPage: 5, currentPage: p }   | filtroconceptocuenta:filterConceptocuenta"    (click)=" viewModal(conceptocuenta)" (click)=" viewModalupdate(conceptocuenta)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "   >
+                  <td>{{conceptocuenta.DESCRIPCION	}}</td>
+                  <td>{{conceptocuenta.id_cuenta}}</td>
+
+               
+                 
+                             
+                 </tr>
+               </tbody>
+               <pagination-controls (pageChange)="p = $event"></pagination-controls>
+             </table>
+           </div>
+         </div>
+       </div>
+       
+  </div>
+
+  <div *ngIf="mostrar3">
+   <div class="card">
+       <div class="card-body">
+         <form>
+           <div class="col-sm-12">
+              <button type="button" class="cerrar"    (click)="   mostrar1=false  "   (click)="   mostrar2=false  "  (click)="   mostrar3=false  " (click)="   mostrar4=false  "><img src="/assets/cerrar.png"  class="cerrar1"> </button>
+
+              <div class="a12 col-sm-6">
+
+                  <h5 class="a8">        empresa : {{conceptocuenta.DESCRIPCION	}} </h5>   
+        
+
+             </div>
+             <div class="a13 col-sm-5">
+
+                <h5 class="a8">       id cuenta  :  {{conceptocuenta.id_cuenta}} </h5>   
+
+             </div>
+             
+           </div>
+           <br/>  <br/>
+           <div class="col-sm-12">
+               <button type="button" class="col-sm-3 a9 "   (click)="   mostrar1=false  "  (click)="   mostrar2=true  "(click)="   mostrar3=false  " (click)="   mostrar4=true  ">  <img src="/assets/editar.png"  class="img1"> <div class="letra">Editar Cuenta</div></button>
+                   </div>
+             <br/>
+                
+           </form>
+       </div>
+     </div>
+  </div>
+  <div *ngIf="mostrar4">
+    <div class="card">
+        <div class="card-body">
+          <form>
+               <div class="form-group">
+                 <div class="col-sm-12">
+                    <button type="button" class="cerrar "    (click)=" viewModal(conceptocuenta)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "><img src="/assets/cerrar.png"  class="cerrar1"> </button>
+
+                      <div class="a12 col-sm-6">
+       
+                          <h5 class="a8">           id concepto :    {{conceptocuenta.id_concepto}}  </h5>   
+                
+       
+                     </div>
+                     <div class="a13 col-sm-5">
+       
+                        <h5 class="a8">             id  empresa  :       {{conceptocuenta.CODIGO}}    </h5>      
+                         <br/> 
+                     </div>
+                     <br/> 
+                    </div>
+                    <div class="col-sm-12">
+
+                     <div class="a13 col-sm-2">
+                      <br/> 
+                      <h5 class="a8">          id  cuenta  :   </h5>           
+                  </div>
+                  <div class ="col-sm-10 a14">
+                      <h5 class="a8">          
+                          <div class="a17" >
+                              <ng-autocomplete 
+                              placeHolder="  {{conceptocuenta.id_cuenta}} "
+                                [data]="this.Cuentas"
+                                [searchKeyword]="keyword2"
+                                (selected)='selectEvent2($event)'
+                                (inputChanged)='onChangeSearch2($event)'
+                                (inputFocused)='onFocused2($event)'
+                                [itemTemplate]="itemTemplate1"
+                                [notFoundTemplate]="notFoundTemplate1">    
+                                                             
+                              </ng-autocomplete>
+                               
+                              <ng-template #itemTemplate1 let-item  class="">
+                              <a [innerHTML]="item.CODIGO"  class=""></a>
+                              </ng-template>
+                               
+                              <ng-template #notFoundTemplate1 let-notFound class="">
+                              <div [innerHTML]="notFound"  class=""></div>
+                              </ng-template>
+                              </div>
+                        
+                        
+                      </h5>   
+                        <br/> 
+                  </div>
+                 
+                </div>
+
+                  
+                    <br/>     <br/>     <br/>           <br/>
+
+               </div>
+               <button type="button" class="col-sm-3 a13 a9"  (click)="    updateConceptocuenta(conceptocuenta) "    (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  " ><img src="/assets/aceptar.png"  class="img1"> <div class="letra"> Agregar</div></button>
+               <button type="button"class="col-sm-3 a13 a9 " (click)="deleteconceptocuenta(conceptocuenta.id_conceptocuentas) "   (click)="   mostrar1=false  "   (click)="   mostrar2=false  "  (click)="   mostrar3=false  "  (click)="   mostrar4=false  ">  <img src="/assets/eliminar.png"  class="img1"> <div class="letra"> Eliminar</div>   </button>
+
+              
+                 
+            </form>
+        </div>
+      </div>
+ </div>
+
   </div>
   
-</div>
-
-
-</div>
-    </div>
-    
-    
-  </div>
-
-</div>
-
-

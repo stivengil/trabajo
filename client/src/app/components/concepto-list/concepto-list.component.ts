@@ -1,7 +1,10 @@
 import { ConceptosService } from './../../services/conceptos.service';
 import { Concepto } from './../../models/Concepto';
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding,Input,Output,EventEmitter} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConceptoCuenta } from './../../models/Concepto-cuenta';
+
+
 
 
 
@@ -12,6 +15,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ConceptoListComponent implements OnInit {
   
+  // Event Emitter: Name must be {var}+Change
+  // because [(views)] translates to [views] & (viewChange)
+
+
+
 
 
   @HostBinding('class') classes = 'row';
@@ -22,18 +30,20 @@ export class ConceptoListComponent implements OnInit {
 };
 
 
+conceptocuenta: ConceptoCuenta = {
+  id_conceptocuentas: 0,
+  id_emp: '',
+  id_concepto: 0,
+  id_cuenta: '',
 
+};
   edit: boolean = false;
 
   constructor( private conceptoservice : ConceptosService, private router: Router, private  activedRoute: ActivatedRoute) { }
 
-
-
   Conceptos: any = [];
-
-
   filterConcepto ='';
-
+  
 
   ngOnInit() {
     this.getconcepto();
@@ -80,9 +90,6 @@ export class ConceptoListComponent implements OnInit {
       )
   }
 
- 
-
-  
   saveNewConcepto(){
     delete this.concepto.id_concepto;
 
@@ -97,7 +104,6 @@ export class ConceptoListComponent implements OnInit {
     )
   }
   
-
   updateConceptoo(concepto){
   
   
@@ -121,6 +127,9 @@ export class ConceptoListComponent implements OnInit {
   viewModal(concepto){
     console.log(concepto)
     this.concepto = concepto
+    this.conceptocuenta.id_concepto = concepto.id_concepto
+    console.log( this.conceptocuenta)
+
     
   }
 

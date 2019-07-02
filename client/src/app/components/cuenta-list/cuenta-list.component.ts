@@ -71,6 +71,24 @@ export class CuentaListComponent implements OnInit {
       );
   }
 
+  viewModalecuenta(cuenta){
+    console.log(cuenta)
+    this.cuenta = cuenta
   
+  }
+  keyword = 'CODIGO';
+  
+  selectEvent(item) {
+    // do something with selected item
+  }
+ 
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  
+  onFocused(e){
+    // do something when input is focused
+  }
 }
 

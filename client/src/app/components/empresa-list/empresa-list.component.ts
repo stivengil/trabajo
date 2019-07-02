@@ -69,7 +69,13 @@ export class EmpresaListComponent implements OnInit {
         err => console.error(err)
       );
   }
+  viewModalempresa(empresa){
+  console.log(empresa)
+  this.empresa = empresa
 
-  
+}
+
+keyword = 'CODIGO';
+
 }
 

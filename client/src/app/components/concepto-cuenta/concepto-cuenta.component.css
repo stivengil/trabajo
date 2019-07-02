@@ -1,0 +1,76 @@
+
+.a17 {
+    background: #f5f6fa;
+}
+.a9{
+    background-color: teal;
+    color: aliceblue;
+}
+.a11{
+
+    float: left;
+
+}
+.a8{
+    color:black;
+}
+
+.a13{
+    float: left;
+}
+.a12{
+    float: left;
+}
+.a14{
+    float: right;
+}
+.a1{background-color: blue}
+
+.a15
+{background-color: brown;
+}
+
+.a16
+{color:antiquewhite;
+}
+.cerrar{
+    float: right;
+   
+}
+.a17{
+    z-index: 100;
+    width: 100%;
+    background-color: blueviolet;
+    position: relative;
+}
+.a18{
+    z-index: auto;
+}
+.a19{
+    z-index: auto;
+}
+.cerrar{
+    float: right;
+   background-color: white;
+   border-block-start-color: white;
+border:none;
+
+}
+.img1{
+
+    color:white; 
+    width: 35px;
+    float: left;
+}
+.letra{
+
+   font-size: 1.5em;
+}
+.cerrar1{
+    width: 20px;
+    background-color: white;
+    border-block-start-color: white;
+ 
+
+}
+

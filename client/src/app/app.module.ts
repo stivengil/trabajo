@@ -22,11 +22,13 @@ import { FiltrocuentaPipe } from './servicefiltro/filtrocuenta.pipe';
 import { FiltroempresaPipe } from './servicefiltro/filtroempresa.pipe';
 import { FiltconceptoPipe } from './servicefiltro/filtconcepto.pipe';
 import { FiltroconceptocuentaPipe } from './servicefiltro/filtroconceptocuenta.pipe';
-import { FiltroconceptcuenPipe } from './servicefiltro/filtroconceptcuen.pipe';
+
 
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ConceptofinalComponent } from './components/conceptofinal/conceptofinal.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { ConceptofinalComponent } from './components/conceptofinal/conceptofinal
 
     FiltroconceptocuentaPipe,
 
-    FiltroconceptcuenPipe,
+     
 
     ConceptofinalComponent
   ],
@@ -59,7 +61,8 @@ import { ConceptofinalComponent } from './components/conceptofinal/conceptofinal
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AutocompleteLibModule
   ],
   providers: [
     ConceptosService,

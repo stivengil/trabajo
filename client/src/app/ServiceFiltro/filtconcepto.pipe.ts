@@ -9,7 +9,7 @@ export class FiltconceptoPipe implements PipeTransform {
  
     const resultConcepto = [];
     for (const Concepto of value) {
-      if (Concepto.id_concepto.toLowerCase().indexOf(arg) > -1) {
+      if (Concepto.concepto_desc.toLowerCase().indexOf(arg) > -1) {
         resultConcepto.push(Concepto)      };
     };
     return resultConcepto;

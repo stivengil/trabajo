@@ -12,10 +12,10 @@ class ConceptoCuentaController {
 
     public async getOne(req: Request, res: Response): Promise<any> {
         const { id } = req.params;
-        const cuenta = await pool.query('SELECT * FROM je_conceptocuentas WHERE id_conceptocuentas = ?', [id]);
+        const cuenta = await pool.query('SELECT * FROM 	je_conceptocuentas AS cc,je_conceptos AS cp,cuentas_contab cu , empresas  AS em  WHERE cc.id_concepto = cp.id_concepto     AND cc.id_emp =  em.CODIGO   AND cc.id_cuenta = cu.CODIGO AND  cc.id_concepto= ? ', [id]);
         console.log(cuenta.length);
         if (cuenta.length > 0) {
-            return res.json(cuenta[0]);
+            return res.json(cuenta);
         }
         res.status(404).json({ text: "The je_conceptocuentas doesn't exits" });
     }

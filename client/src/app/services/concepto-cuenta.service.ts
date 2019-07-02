@@ -15,8 +15,8 @@ export class ConceptoCuentaService {
     return this.http.get(`${this.API_URI}/conceptocuenta`);
   }
 
-  getConceptoCuenta(id_concepto_cuenta: string){
-   return this.http.get(`${this.API_URI}/conceptocuenta/${id_concepto_cuenta}`);
+  getConceptoCuenta(id_concepto: string|number){
+   return this.http.get(`${this.API_URI}/conceptocuenta/${id_concepto}`);
   }
 
   deleteConceptoCuenta(id_concepto_cuenta: string){

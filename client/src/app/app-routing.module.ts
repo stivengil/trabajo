@@ -11,7 +11,7 @@ import { ConceptofinalComponent } from './components/conceptofinal/conceptofinal
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'conceptofinal',
+    redirectTo: 'concepto',
     pathMatch: 'full'
   },
   {
