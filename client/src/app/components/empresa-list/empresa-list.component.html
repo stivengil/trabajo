@@ -31,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let empresa of empresas  | filtroempresa:filterEmpresa | paginate: { itemsPerPage:1 , currentPage: p }  "  (click)=" viewModalempresa(empresa)" >
+          <tr *ngFor="let empresa of empresas  | filtroempresa:filterEmpresa | paginate: { itemsPerPage:5 , currentPage: p }  "  >
             <td>{{empresa.CODIGO	}}</td>
             <td>{{empresa.DESCRIPCION}}</td>
             <td>{{empresa.NIT}}</td>

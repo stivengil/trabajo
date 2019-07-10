@@ -61,7 +61,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let concepto of Conceptos   | paginate: { itemsPerPage: 5, currentPage: p }   | filtconcepto:filterConcepto"    (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "   >
+                  <tr *ngFor="let concepto of Conceptos   | paginate: { itemsPerPage: 20, currentPage: p }   | filtconcepto:filterConcepto"    (click)="viewModal(concepto)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "   >
                     <td>  {{concepto.id_concepto}}</td>
                     <td> {{concepto.concepto_desc}} </td>
                     <td>  

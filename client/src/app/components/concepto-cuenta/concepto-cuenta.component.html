@@ -112,8 +112,30 @@
            <div class="col">
              <div class="form-group">
                 <br/>
-              <input type="text" class="form-control" name="filterConceptocuenta" placeholder="buscador..." [(ngModel)]="filterConceptocuenta">
-            </div>
+             
+                <div class="a17">
+                  <ng-autocomplete 
+                
+                   
+                    [data]="this.empresas"
+                    [searchKeyword]="keyword3"
+                    (selected)='selectEvent3($event)'
+                    (inputChanged)='onChangeSearch3($event)'
+                    (inputFocused)='onFocused3($event)'
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">                                 
+                  </ng-autocomplete>
+                   
+                  <ng-template #itemTemplate let-item class="">
+                  <a [innerHTML]="item.CODIGO"  class=""></a>
+                  </ng-template>
+                   
+                  <ng-template #notFoundTemplate let-notFound class="">
+                  <div [innerHTML]="notFound"  class=""></div>
+                  </ng-template>
+                  </div>
+            
+              </div>
            </div>
          </div>
          <div class="row">
@@ -129,7 +151,7 @@
                  </tr>
                </thead>
                <tbody>
-                 <tr *ngFor="let conceptocuenta of conceptocuentas | paginate: { itemsPerPage: 5, currentPage: p }   | filtroconceptocuenta:filterConceptocuenta"    (click)=" viewModal(conceptocuenta)" (click)=" viewModalupdate(conceptocuenta)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "   >
+                 <tr *ngFor="let conceptocuenta of conceptocuentas | paginate: { itemsPerPage: 15, currentPage: p }   | filtroconceptocuenta:filterConceptocuenta"    (click)=" viewModal(conceptocuenta)" (click)=" viewModalupdate(conceptocuenta)"  (click)="mostrar2=true"  (click)="mostrar1=false" (click)="mostrar3=true "(click)="   mostrar4=false  "   >
                   <td>{{conceptocuenta.DESCRIPCION	}}</td>
                   <td>{{conceptocuenta.id_cuenta}}</td>
 

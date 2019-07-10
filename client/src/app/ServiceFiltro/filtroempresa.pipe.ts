@@ -9,7 +9,7 @@ export class FiltroempresaPipe implements PipeTransform {
  
     const resultEmpresa = [];
     for (const empresa of value) {
-      if (empresa.DESCRIPCION.toLowerCase().indexOf(arg) > -1) {
+      if (empresa.DESCRIPCION.indexOf(arg) > -1) {
         resultEmpresa.push(empresa)      };
     };
     return resultEmpresa;

@@ -9,6 +9,7 @@ import { Empresa } from './../../models/empresa';
 
 import { Component, OnInit, HostBinding ,Input} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Console } from '@angular/core/src/console';
 
 @Component({
   selector: 'app-concepto-cuenta',
@@ -158,8 +159,8 @@ update: ConceptoCuenta = {
       err =>  {
 
         console.log(err)
-
-      alert("hola")
+       
+   
       }
     )
     
@@ -332,4 +333,25 @@ onFocused2(e){
   e=this.conceptocuenta.id_cuenta;
   // do something when input is focused
 }
+keyword3 = 'CODIGO';
+
+selectEvent3(item) {
+
+ 
+  this.filterConceptocuenta=item.CODIGO;
+  console.log(this.filterConceptocuenta);
+
+ 
+  // do something with selected item
+ }
+ 
+ onChangeSearch3(val: string) {
+  // fetch remote data from here
+   // And reassign the 'data' which is binded to 'data' property.
+ }
+ 
+ onFocused3(e){
+
+   // do something when input is focused
+ }
 }
